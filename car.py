@@ -1,43 +1,36 @@
-class Book:
-    book_counter = 0  
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
-        self.is_borrowed = False
-        Book.book_counter += 1
+class Car:
+    wheels = 4  
 
-    def borrow(self):
-        if not self.is_borrowed:
-            self.is_borrowed = True
-            print(f"Borrowed: {self.title}")
-        else:
-            print(f" '{self.title}' is already borrowed!")
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.mileage = 0  
 
-    def return_book(self):
-        if self.is_borrowed:
-           self.is_borrowed = False
-           print(f"Returned: {self.title}")
+    
+    def drive(self, km):
+        if km > 0:
+            self.mileage += km
+            print(f"Drove {km} km. Total mileage: {self.mileage} km")
         else:
-            print(f" '{self.title}' is not borrowed!")
+            print("Distance must be a positive number!")
+
+   
+    def age(self, current_year):
+        return current_year - self.year
 
     def __str__(self):
-        status = "Available" if not self.is_borrowed else "Borrowed"
-        return f"'{self.title}' by {self.author} — {status}"
+        return f"{self.year} {self.brand} {self.model} - Wheels: {self.wheels} -Mileage: {self.mileage} km"
 
-    def __repr__(self):
-        return f"Book('{self.title}', '{self.author}', borrowed={self.is_borrowed})"
+car1 = Car("Toyota", "Fortuner", 2024)
+car2 = Car("Toyota", "Vios", 2024)
+car3 = Car("Ford", "Ranger", 2025)
 
-
-print("\n" + "="*50)
-book1 = Book("Dosage of Serotonin", "Inksteady")
-book2 = Book("Harry Potter", "J.K Rowling")
-
-print(f"Total books in library: {Book.book_counter}")
-print(book1)
-book1.borrow()
-book1.borrow()
-print(book1)
-book1.return_book()
-print(book1)
-print("\n__repr__ output:")
-print(repr(book2))
+print(car1)
+car1.drive(100)
+car1.drive(-50)
+    
+print(f"Car 1 age in 2026: {car1.age(2026)} years")
+    
+print("\n" + str(car2))
+print(car3)
