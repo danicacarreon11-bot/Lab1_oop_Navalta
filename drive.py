@@ -23,9 +23,9 @@ class Car:
         return f"{self.year} {self.brand} {self.model} - Wheels: {self.wheels} -Mileage: {self.mileage} km"
 
 
-car1 = Car("Toyota", "Fortuner", 2024)
-car2 = Car("Toyota", "Vios", 2024)
-car3 = Car("Ford", "Ranger", 2025)
+car1 = Car("Honda", "Civic", 2025)
+car2 = Car("Toyota", "Innova", 2025)
+car3 = Car("Nissan", "Terra", 2025)
 
 print(car1)
 car1.drive(100)
